@@ -12,9 +12,10 @@ fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
 x_len = 200         # Number of points to display
 y_range = [0, 5] 
+plt.style.use('ggplot')
 
-xs = list(range(0, 200))
-ys = [0] * x_len
+xs = []
+ys = []
 ax.set_ylim(y_range)
 
 line = ax.plot(xs, ys)
@@ -28,7 +29,7 @@ def animate(i, xs, ys):
     
     # Add x and y to lists
     xs.append(i)
-    ys.append(data.decode())
+    ys.append(float(data.decode()))
 
     # Limit x and y lists to 20 items
     xs = xs[-x_len:]
