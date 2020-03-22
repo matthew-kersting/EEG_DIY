@@ -5,8 +5,10 @@ Plot Voltage data coming from Arduino
 import serial
 import matplotlib.animation as animation
 from matplotlib import pyplot as plt
+import time
 
 ser = serial.Serial('COM3', 9600)
+time.sleep(2)
 # Create figure for plotting
 fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
@@ -28,8 +30,14 @@ def animate(i, xs, ys):
     print(data.decode())
     
     # Add x and y to lists
-    xs.append(i)
-    ys.append(float(data.decode()))
+    # Add x and y to lists
+    try:
+        print(data.decode())
+        ys.append(float(data.decode()))
+        xs.append(i)
+
+    except ValueError:
+        print("error reading float")
 
     # Limit x and y lists to 20 items
     xs = xs[-x_len:]
