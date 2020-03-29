@@ -18,3 +18,9 @@
 ### 1- Read analog voltage (potentiometer) from arduino into python
 
 ![](example_graph.gif)
+
+### 2- Grab discrete chunk of voltage data and write to file
+The plan is to use these chunks as training data
+The filtering right now is just a high-pass filter - This will likely change as instrumentation is set up
+
+![](Voltage_figure_Mar29.png)
